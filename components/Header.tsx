@@ -4,13 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import type { Route } from 'next'; // 👈 add this
 
+// 👇 make hrefs typed as Route (literal-safe)
 const nav = [
-  { href: '/en', label: 'Home' },
-  { href: '/en/services', label: 'Services' },
-  { href: '/en/about', label: 'About' },
-  { href: '/en/contact', label: 'Contact' },
-];
+  { href: '/en' as Route, label: 'Home' },
+  { href: '/en/services' as Route, label: 'Services' },
+  { href: '/en/about' as Route, label: 'About' },
+  { href: '/en/contact' as Route, label: 'Contact' },
+] satisfies ReadonlyArray<{ href: Route; label: string }>;
 
 export default function Header() {
   const pathname = usePathname();
@@ -28,7 +30,7 @@ export default function Header() {
           {nav.map((n) => (
             <Link
               key={n.href}
-              href={n.href}
+              href={n.href} // ✅ now typed
               className={`text-sm hover:text-white transition-colors ${pathname === n.href ? 'text-white' : 'text-text-muted'}`}
             >
               {n.label}
@@ -37,12 +39,21 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/en/contact#contact-form" className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark focus-visible:outline-none">
+          <Link
+            href={{ pathname: '/en/contact', hash: 'contact-form' }} // ✅ object form for hash
+            className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark focus-visible:outline-none"
+          >
             Contact Now
           </Link>
         </div>
 
-        <button className="md:hidden rounded-lg border border-border px-3 py-2 text-sm" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls="mobile-nav" aria-label="Toggle menu">
+        <button
+          className="md:hidden rounded-lg border border-border px-3 py-2 text-sm"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label="Toggle menu"
+        >
           Menu
         </button>
       </div>
@@ -54,7 +65,10 @@ export default function Header() {
               {n.label}
             </Link>
           ))}
-          <Link href="/en/contact#contact-form" className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark">
+          <Link
+            href={{ pathname: '/en/contact', hash: 'contact-form' }} // ✅ hash-safe
+            className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark"
+          >
             Contact Now
           </Link>
         </div>

@@ -11,7 +11,13 @@ export default function HomePage() {
       <Section title="Services" subtitle="Built for reliability, measured by impact.">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map(s => (
-            <ServiceCard key={s.slug} title={s.title} summary={s.value} href={`/en/services/${s.slug}`} />
+            <ServiceCard
+              key={s.slug}
+              title={s.title}
+              summary={s.value}
+              href={{ pathname: '/en/services/[slug]', query: { slug: s.slug } }}
+            />
+
           ))}
         </div>
       </Section>

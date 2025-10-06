@@ -103,7 +103,7 @@ export default function Hero() {
               {/* CTAs */}
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link
-                  href="/en/contact#contact-form"
+                  href={{ pathname: '/en/contact', hash: 'contact-form' }}
                   className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-medium text-white shadow-glow hover:bg-primaryDark focus-visible:outline-none"
                 >
                   Contact Now

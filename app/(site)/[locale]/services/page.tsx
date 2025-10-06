@@ -49,7 +49,7 @@ export default function ServicesPage() {
                 {s.kpis.map((k, i) => <span key={i} className="rounded-xl bg-primary/10 px-2 py-1 text-xs text-primary">{k}</span>)}
               </div>
               <div className="mt-6">
-                <Link href="/en/contact#contact-form" className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark">Get a tailored quote</Link>
+                <Link href={{ pathname: '/en/contact', hash: 'contact-form' }} className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark">Get a tailored quote</Link>
               </div>
             </div>
           </div>

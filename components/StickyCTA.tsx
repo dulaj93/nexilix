@@ -14,7 +14,7 @@ export default function StickyCTA() {
   return (
     <div className={`fixed inset-x-0 bottom-0 z-40 border-t border-border/60 bg-bg-deep/95 backdrop-blur md:hidden transition-transform ${visible ? 'translate-y-0' : 'translate-y-full'}`}>
       <div className="container py-3">
-        <Link href="/en/contact#contact-form" className="block w-full text-center rounded-xl bg-primary px-4 py-3 text-sm font-medium text-white shadow-glow hover:bg-primaryDark">
+        <Link href={{ pathname: '/en/contact', hash: 'contact-form' }} className="block w-full text-center rounded-xl bg-primary px-4 py-3 text-sm font-medium text-white shadow-glow hover:bg-primaryDark">
           Contact Now
         </Link>
       </div>
