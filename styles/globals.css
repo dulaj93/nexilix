@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ring: #2F81F7;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-bg-base text-text-base antialiased;
+  background-image: radial-gradient(1200px 600px at 10% -10%, #E0434414, transparent), radial-gradient(1200px 600px at 90% 110%, #2F81F714, transparent);
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+  border-radius: 8px;
+}
+
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 1200px;
+}
+
+/* Hairline grid background helper */
+.bg-grid {
+  background-image: theme('backgroundImage.grid-faint');
+  background-size: 24px 24px;
+}
