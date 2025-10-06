@@ -1,1 +1,17 @@
+# Node / Next.js
 node_modules
+.next
+out
+.vercel
+
+# Env & logs
+.env*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.vscode/
