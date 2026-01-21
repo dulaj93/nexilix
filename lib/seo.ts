@@ -15,7 +15,7 @@ export function baseMetadata(overrides?: Metadata): Metadata {
       template: '%s | Automation Services',
     },
     description:
-      'We design and deploy scalable automation—IoT, industrial automation, electronic designs, and software/web solutions. Reduce downtime, boost throughput, and get expert support.',
+      'We design and deploy scalable automation - IoT, industrial automation, electronic designs, and software/web solutions. Reduce downtime, boost throughput, and get expert support.',
     openGraph: {
       type: 'website',
       url: site.url,

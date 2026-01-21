@@ -32,7 +32,7 @@ export const services: Service[] = [
   {
     slug: 'electronics',
     title: 'Electronic Designs',
-    value: 'PCB, firmware, and DFM—built for reliability.',
+    value: 'PCB, firmware, and DFM-built for reliability.',
     summary: 'From schematic to production: PCB design, embedded firmware, EMC/EMI design, prototyping, and testing.',
     bullets: [
       'Schematic capture & layout (DFM/DFT)',

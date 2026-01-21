@@ -4,12 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import type { Route } from 'next'; // 👈 add this
+import type { Route } from 'next';
 
-// 👇 make hrefs typed as Route (literal-safe)
 const nav = [
   { href: '/en' as Route, label: 'Home' },
   { href: '/en/services' as Route, label: 'Services' },
+  { href: '/en/projects' as Route, label: 'Projects' },
   { href: '/en/about' as Route, label: 'About' },
   { href: '/en/contact' as Route, label: 'Contact' },
 ] satisfies ReadonlyArray<{ href: Route; label: string }>;
@@ -30,7 +30,7 @@ export default function Header() {
           {nav.map((n) => (
             <Link
               key={n.href}
-              href={n.href} // ✅ now typed
+              href={n.href}
               className={`text-sm hover:text-white transition-colors ${pathname === n.href ? 'text-white' : 'text-text-muted'}`}
             >
               {n.label}
@@ -40,7 +40,7 @@ export default function Header() {
 
         <div className="hidden md:block">
           <Link
-            href={{ pathname: '/en/contact', hash: 'contact-form' }} // ✅ object form for hash
+            href={{ pathname: '/en/contact', hash: 'contact-form' }}
             className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark focus-visible:outline-none"
           >
             Contact Now
@@ -66,7 +66,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href={{ pathname: '/en/contact', hash: 'contact-form' }} // ✅ hash-safe
+            href={{ pathname: '/en/contact', hash: 'contact-form' }}
             className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark"
           >
             Contact Now

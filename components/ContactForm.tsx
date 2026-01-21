@@ -16,7 +16,7 @@ export default function ContactForm() {
     const formData = new FormData(form);
     if ((formData.get('companyWebsite') as string)?.length) {
       // honeypot
-      setState({ status: 'success', message: 'Thanks! We’ll review and respond within 24 hours.' });
+      setState({ status: 'success', message: "Thanks! We'll review and respond within 24 hours." });
       form.reset();
       return;
     }
@@ -24,7 +24,7 @@ export default function ContactForm() {
     try {
       const res = await fetch('/api/contact', { method: 'POST', body: formData });
       if (!res.ok) throw new Error('Failed');
-      setState({ status: 'success', message: 'Thanks! We’ll review and respond within 24 hours.' });
+      setState({ status: 'success', message: "Thanks! We'll review and respond within 24 hours." });
       form.reset();
     } catch (err) {
       setState({ status: 'error', message: 'Something went wrong. You can also email us: info@example.com' });
@@ -74,7 +74,7 @@ export default function ContactForm() {
       </div>
 
       <button type="submit" disabled={state.status === 'sending'} className="rounded-xl bg-primary px-6 py-3 text-sm font-medium text-white shadow-glow hover:bg-primaryDark disabled:opacity-60">
-        {state.status === 'sending' ? 'Sending…' : 'Send Inquiry'}
+        {state.status === 'sending' ? 'Sending...' : 'Send Inquiry'}
       </button>
 
       {state.message && (

@@ -2,8 +2,8 @@ import Section from '@/components/Section';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
-  title: 'Contact Us | Automation Experts — Get a Proposal',
-  description: 'Tell us your goals. We’ll review requirements and send a tailored automation plan and quote.',
+  title: 'Contact Us | Automation Experts - Get a Proposal',
+  description: "Tell us your goals. We'll review requirements and send a tailored automation plan and quote.",
 };
 
 export default function ContactPage() {

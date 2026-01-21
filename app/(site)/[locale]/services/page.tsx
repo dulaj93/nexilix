@@ -1,4 +1,6 @@
 import Section from '@/components/Section';
+import ProjectCard from '@/components/ProjectCard';
+import { projects } from '@/content/projects';
 import { services } from '@/content/services';
 import Link from 'next/link';
 
@@ -35,8 +37,8 @@ export default function ServicesPage() {
               <ol className="mt-2 flex flex-wrap gap-2 text-sm text-text-muted">
                 {s.process.map((p, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <span className="rounded-full border border-border/60 px-2 py-1">{i+1}</span> {p}
-                    {i < s.process.length - 1 && <span className="mx-1 text-text-dim">→</span>}
+                    <span className="rounded-full border border-border/60 px-2 py-1">{i + 1}</span> {p}
+                    {i < s.process.length - 1 && <span className="mx-1 text-text-dim">-></span>}
                   </li>
                 ))}
               </ol>
@@ -51,6 +53,29 @@ export default function ServicesPage() {
               <div className="mt-6">
                 <Link href={{ pathname: '/en/contact', hash: 'contact-form' }} className="rounded-xl bg-primary px-4 py-2 text-sm font-medium text-white shadow-glow hover:bg-primaryDark">Get a tailored quote</Link>
               </div>
+            </div>
+          </div>
+          <div className="mt-8">
+            <h4 className="font-medium text-white">Related projects</h4>
+            <div className="mt-4 grid gap-6 sm:grid-cols-2">
+              {projects
+                .filter((project) => project.services.includes(s.slug))
+                .map((project) => (
+                  <ProjectCard
+                    key={project.slug}
+                    title={project.title}
+                    category={project.category}
+                    topic={project.topic}
+                    summary={project.summary}
+                    image={project.images[0]}
+                    href={`/en/projects/${project.slug}`}
+                  />
+                ))}
+            </div>
+            <div className="mt-4">
+              <Link href="/en/projects" className="text-sm text-text-muted hover:text-white">
+                View full portfolio ->
+              </Link>
             </div>
           </div>
         </Section>

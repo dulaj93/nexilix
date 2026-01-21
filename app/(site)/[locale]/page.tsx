@@ -15,13 +15,12 @@ export default function HomePage() {
               key={s.slug}
               title={s.title}
               summary={s.value}
-              href={{ pathname: '/en/services/[slug]', query: { slug: s.slug } }}
+              href={`/en/services/${s.slug}`}
             />
-
           ))}
         </div>
       </Section>
-      <Section title="Contact Now" subtitle="Tell us your goals. We’ll review requirements and send a tailored plan and quote.">
+      <Section title="Contact Now" subtitle="Tell us your goals. We'll review requirements and send a tailored plan and quote.">
         <div className="rounded-2xl border border-border/60 bg-card p-6">
           <ContactForm />
         </div>

@@ -18,11 +18,11 @@ export default function ChatbotButton() {
       {open && (
         <div className="mb-2 w-80 rounded-2xl border border-border/60 bg-card p-4 text-sm text-text-muted shadow">
           <p className="mb-2 font-medium text-white">Assistant</p>
-          <div className="rounded-xl border border-border/60 bg-bg-base p-3">Hi! I’m a placeholder. Ask about services or request a quote.</div>
+          <div className="rounded-xl border border-border/60 bg-bg-base p-3">Hi! I'm a placeholder. Ask about services or request a quote.</div>
         </div>
       )}
       <button onClick={() => setOpen((v) => !v)} aria-expanded={open} className="rounded-full bg-primary p-3 text-white shadow-glow hover:bg-primaryDark focus-visible:outline-none" aria-label="Open chat">
-        💬
+        Chat
       </button>
     </div>
   );

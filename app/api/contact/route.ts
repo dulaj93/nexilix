@@ -19,15 +19,22 @@ export async function POST(req: NextRequest) {
   if (!ok) return new Response('Too many requests', { status: 429 });
 
   const form = await req.formData();
-  const raw = Object.fromEntries(form.entries());
+  const getString = (key: string) => {
+    const value = form.get(key);
+    return typeof value === 'string' ? value : undefined;
+  };
+  const interest = form
+    .getAll('interest')
+    .map((value) => (typeof value === 'string' ? value : ''))
+    .filter(Boolean);
   const data = schema.safeParse({
-    name: raw.name,
-    email: raw.email,
-    company: raw.company,
-    phone: raw.phone,
-    interest: Array.isArray(raw.interest) ? (raw.interest as string[]).join(', ') : (raw.interest as string | undefined),
-    message: raw.message,
-    companyWebsite: raw.companyWebsite,
+    name: getString('name'),
+    email: getString('email'),
+    company: getString('company'),
+    phone: getString('phone'),
+    interest: interest.length ? interest.join(', ') : undefined,
+    message: getString('message'),
+    companyWebsite: getString('companyWebsite'),
   });
 
   if (!data.success) {
