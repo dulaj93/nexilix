@@ -38,7 +38,7 @@ export default function ServicesPage() {
                 {s.process.map((p, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <span className="rounded-full border border-border/60 px-2 py-1">{i + 1}</span> {p}
-                    {i < s.process.length - 1 && <span className="mx-1 text-text-dim">-></span>}
+                    {i < s.process.length - 1 && <span className="mx-1 text-text-dim">-&gt;</span>}
                   </li>
                 ))}
               </ol>
