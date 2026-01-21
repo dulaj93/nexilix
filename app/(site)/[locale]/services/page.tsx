@@ -74,7 +74,7 @@ export default function ServicesPage() {
             </div>
             <div className="mt-4">
               <Link href="/en/projects" className="text-sm text-text-muted hover:text-white">
-                View full portfolio ->
+                View full portfolio -&gt;
               </Link>
             </div>
           </div>

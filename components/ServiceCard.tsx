@@ -20,7 +20,7 @@ export default function ServiceCard({ title, summary, href }: Props) {
           href={href as Route}
           className="mt-3 inline-block text-sm text-text-muted group-hover:text-white hover:text-white"
         >
-          Learn more ->
+          Learn more -&gt;
         </Link>
       </div>
     </motion.div>
