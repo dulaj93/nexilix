@@ -1,12 +1,13 @@
 'use client';
 
-import Link, { type LinkProps } from 'next/link';
+import Link from 'next/link';
+import type { Route } from 'next';
 import { motion } from 'framer-motion';
 
 type Props = {
   title: string;
   summary: string;
-  href: LinkProps<unknown>['href']; // typedRoutes-friendly
+  href: string;
 };
 
 export default function ServiceCard({ title, summary, href }: Props) {
@@ -16,7 +17,7 @@ export default function ServiceCard({ title, summary, href }: Props) {
         <h3 className="text-white font-semibold">{title}</h3>
         <p className="mt-2 text-sm text-text-muted">{summary}</p>
         <Link
-          href={href}
+          href={href as Route}
           className="mt-3 inline-block text-sm text-text-muted group-hover:text-white hover:text-white"
         >
           Learn more ->

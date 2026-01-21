@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Route } from 'next';
 
 type Props = {
   title: string;
@@ -24,7 +25,7 @@ export default function ProjectCard({ title, category, topic, summary, href, ima
       </div>
       <h3 className="mt-3 text-white font-semibold">{title}</h3>
       <p className="mt-2 text-sm text-text-muted">{summary}</p>
-      <Link href={href} className="mt-3 inline-block text-sm text-text-muted hover:text-white">
+      <Link href={href as Route} className="mt-3 inline-block text-sm text-text-muted hover:text-white">
         View project ->
       </Link>
     </div>
